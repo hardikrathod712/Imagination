@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AiOutlineLogout } from "react-icons/ai"
+// import { AiOutlineLogout } from "react-icons/ai"
 import { useParams, useNavigate } from "react-router-dom"
 import { GoogleLogout } from "react-google-login"
 
@@ -46,7 +46,7 @@ const UserProfile = () => {
                 setLoading(false)
                 setRefresh(false)
             })
-    }, [text, refresh])
+    }, [text, refresh]) // eslint-disable-line react-hooks/exhaustive-deps
 
     if (!user) {
         return <Spinner message='Loading profile...' />

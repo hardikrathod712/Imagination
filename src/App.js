@@ -5,13 +5,12 @@ import Home from './container/Home'
 import { fetchUser } from './utils/fetchUser'
 
 const App = () => {
-
     const navigate = useNavigate()
 
     useEffect(() => {
         const user = fetchUser()
         if (!user) navigate('/login')
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <Routes>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AiOutlineCloudDownload, AiOutlineArrowUp } from 'react-icons/ai'
+import { AiOutlineCloudDownload } from 'react-icons/ai'
 import { MdDelete, MdError } from 'react-icons/md'
 import { client } from '../client'
 import { SpinnerUpload } from './Spinner'
@@ -14,7 +14,7 @@ const CreatePin = ({ user }) => {
     const [fields, setFields] = useState(false)
     const [category, setCategory] = useState(null)
     const [imageAsset, setImageAsset] = useState(null)
-    const [wrongImageType, setWrongImageType] = useState(false)
+    // const [wrongImageType, setWrongImageType] = useState(false)
     const navigate = useNavigate()
 
     const uploadImage = (e) => {
@@ -54,7 +54,7 @@ const CreatePin = ({ user }) => {
                 category,
             }
             client.create(doc)
-                .then(()=>{
+                .then(() => {
                     navigate('/')
                 })
         } else {
@@ -67,7 +67,7 @@ const CreatePin = ({ user }) => {
         <div className='flex flex-col justify-center items-center mt-5 lg:h-4/5'>
             {fields && (
                 <div className='flex items-center w-4/5 bg-red-100 mb-6 p-2'>
-                    <MdError className='text-red-700' fontSize={25}/>
+                    <MdError className='text-red-700' fontSize={25} />
                     <p className='text-red-800 ml-2 text-lg transition-all ease-in duration-150 '>Please fill in all the fields.</p>
                 </div>
             )}
@@ -75,7 +75,7 @@ const CreatePin = ({ user }) => {
                 <div className='bg-secondaryColor p-3 flex flex-0.7 w-full rounded-lg'>
                     <div className='flex flex-col justify-center items-center border-2 border-dotted border-gray-400 h-420 w-full p-3 rounded-lg'>
                         {/* {loading && <SpinnerUpload />} */}
-                        {wrongImageType && <p className='text-red-600 text-xl transition-all ease-in duration-150'>Wrong Image Type</p>}
+                        {/* {wrongImageType && <p className='text-red-600 text-xl transition-all ease-in duration-150'>Wrong Image Type</p>} */}
                         {!imageAsset ? (<div>
                             {!loading ? (
                                 <label className='hover:cursor-pointer'>
@@ -105,7 +105,7 @@ const CreatePin = ({ user }) => {
                         </div>
                         ) : (
                             <div className='relative h-full'>
-                                <img src={imageAsset?.url} alt='uploaded-image' className='w-full h-full' />
+                                <img src={imageAsset?.url} alt='uploads' className='w-full h-full' />
                                 <button
                                     type='button'
                                     className='absolute bottom-2 right-2 p-2 rounded-full bg-white hover:bg-red-500 hover:shadow-md text-xl cursor-pointer outline-none transition-all duration-500 ease-in-out'
