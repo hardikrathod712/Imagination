@@ -72,7 +72,7 @@ const UserProfile = () => {
                         />
                         <h1 className='mt-4 text-2xl 2xl:text-4xl text-center font-bold tracking-wider'>{user.userName}</h1>
                         <div className='mt-2'>
-                            {user._id === loggedUser._id && (
+                            {user._id === loggedUser?.googleId && (
                                 <GoogleLogout
                                     clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                                     render={(renderProps) => (
