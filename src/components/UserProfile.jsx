@@ -7,6 +7,7 @@ import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from "../utils/da
 import { client } from "../client"
 import { Spinner } from "./Spinner"
 import MasonryLayout from './MasonryLayout'
+import { fetchUser } from '../utils/fetchUser'
 
 const UserProfile = () => {
 
@@ -18,6 +19,7 @@ const UserProfile = () => {
     const [refresh, setRefresh] = useState(false)
     const { userId } = useParams()
     const navigate = useNavigate()
+    const loggedUser = fetchUser()
 
     const randomImage = 'https://source.unsplash.com/1920x1080/?japan,nature,galaxy'
 
@@ -70,7 +72,7 @@ const UserProfile = () => {
                         />
                         <h1 className='mt-4 text-2xl 2xl:text-4xl text-center font-bold tracking-wider'>{user.userName}</h1>
                         <div className='mt-2'>
-                            {userId === user._id && (
+                            {userId === loggedUser._id && (
                                 <GoogleLogout
                                     clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                                     render={(renderProps) => (
