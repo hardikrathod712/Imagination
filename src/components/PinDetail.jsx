@@ -98,7 +98,7 @@ const PinDetail = ({ user }) => {
                         </h1>
                         <p className='mt-3'>{pinDetail.about}</p>
                     </div>
-                    <Link to={`user-profile/${pinDetail.postedBy?._id}`} className='flex gap-2 items-center mt-5 bg-white rounded-lg'>
+                    <Link to={`/user-profile/${pinDetail.postedBy?._id}`} className='flex gap-2 items-center mt-5 bg-white rounded-lg'>
                         <img src={pinDetail.postedBy?.image} className='w-10 h-10 rounded-full object-cover' alt='user-profile' />
                         <p className='font-semibold capitalize tracking-wider'>{pinDetail.postedBy?.userName}</p>
                     </Link>
@@ -128,7 +128,7 @@ const PinDetail = ({ user }) => {
                     {
                         hideComment && (
                             <div className='flex flex-wrap mt-6 gap-3 items-center'>
-                                <Link to={`user-profile/${pinDetail.postedBy?._id}`}>
+                                <Link to={`/user-profile/${pinDetail.postedBy?._id}`}>
                                     <img src={pinDetail.postedBy?.image} className='w-9 h-9 rounded-full' alt='user-profile' />
                                 </Link>
                                 <input
